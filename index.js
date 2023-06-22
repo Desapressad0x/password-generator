@@ -20,7 +20,7 @@ function numero_aleatorio(min, max) {
 
 /**
  * @returns {string} - Retorna a senha gerada
-*/
+ */
 async function gerar(tamanho) {
   const str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
   let senha = '';
