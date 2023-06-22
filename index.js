@@ -1,6 +1,9 @@
 console.clear();
 const https = require('https');
 
+/**
+ * @returns {Promise<void>} - Realiza o request pra obter o número
+ */
 function numero_aleatorio(min, max) {
   return new Promise((resolve, reject) => {
     https.get(`https://www.random.org/integers/?num=1&min=${min}&max=${max}&col=1&base=10&format=plain&rnd=new`, (resp) => {
@@ -12,9 +15,9 @@ function numero_aleatorio(min, max) {
         resolve(texto);
       });
     }).on('error', (error) => {
-        console.log(error);
-        process.exit(); 
-      });
+      console.log(error);
+      process.exit(); 
+    });
   });
 }
 
