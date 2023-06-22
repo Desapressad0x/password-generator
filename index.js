@@ -31,5 +31,5 @@ async function gerar(tamanho) {
 }
 
 gerar(22).then((s) => {
-  console.log('Senha gerada:', s);
+  console.log('Generated password:', s);
 });
