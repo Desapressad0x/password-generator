@@ -1,5 +1,11 @@
 console.clear();
 const https = require('https');
+const path = require('path');
+
+if (process.argv.length < 3) {
+  console.log(`Specify the password length.\n\nUse: node ${path.basename(__filename)} [length]`);
+  process.exit(1);
+}
 
 /**
  * @returns {Promise<void>} - Realiza o request pra obter o número
@@ -16,7 +22,7 @@ function numero_aleatorio(min, max) {
       });
     }).on('error', (error) => {
       console.log(error);
-      process.exit(); 
+      process.exit(1); 
     });
   });
 }
@@ -36,6 +42,6 @@ async function gerar(tamanho) {
   return senha;
 }
 
-gerar(22).then((s) => {
+gerar(process.argv[2]).then((s) => {
   console.log('Generated password:', s);
 });
